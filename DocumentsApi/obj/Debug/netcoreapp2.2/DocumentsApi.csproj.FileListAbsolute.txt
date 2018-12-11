@@ -1,0 +1,14 @@
+D:\projetos\qualyteam\back-end\DocumentsApi\bin\Debug\netcoreapp2.2\DocumentsApi.deps.json
+D:\projetos\qualyteam\back-end\DocumentsApi\bin\Debug\netcoreapp2.2\DocumentsApi.runtimeconfig.json
+D:\projetos\qualyteam\back-end\DocumentsApi\bin\Debug\netcoreapp2.2\DocumentsApi.runtimeconfig.dev.json
+D:\projetos\qualyteam\back-end\DocumentsApi\bin\Debug\netcoreapp2.2\DocumentsApi.dll
+D:\projetos\qualyteam\back-end\DocumentsApi\bin\Debug\netcoreapp2.2\DocumentsApi.pdb
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.csprojAssemblyReference.cache
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.csproj.CoreCompileInputs.cache
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.RazorAssemblyInfo.cache
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.RazorAssemblyInfo.cs
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.AssemblyInfoInputs.cache
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.AssemblyInfo.cs
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.RazorTargetAssemblyInfo.cache
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.dll
+D:\projetos\qualyteam\back-end\DocumentsApi\obj\Debug\netcoreapp2.2\DocumentsApi.pdb
