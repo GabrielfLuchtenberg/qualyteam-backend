@@ -12,16 +12,14 @@ namespace DocumentsApi.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly CategoryContext _context;
+        private readonly DatabaseContext _context;
 
-        public CategoryController(CategoryContext context)
+        public CategoryController(DatabaseContext context)
         {
             _context = context;
 
             if (_context.Categories.Count() == 0)
             {
-                // Create a new TodoItem if collection is empty,
-                // which means you can't delete all TodoItems.
                 _context.Categories.Add(new Category { Name = "Procedimentos operacionais" });
                 _context.Categories.Add(new Category { Name = "Formulários padrões" });
                 _context.Categories.Add(new Category { Name = "Planejamento de processo" });

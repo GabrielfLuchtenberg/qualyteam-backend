@@ -26,8 +26,8 @@ namespace DocumentsApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DepartmentContext>(opt => opt.UseInMemoryDatabase("Department"));
-            services.AddDbContext<CategoryContext>(opt => opt.UseInMemoryDatabase("Category"));
+            services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DocumentsDatabase")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

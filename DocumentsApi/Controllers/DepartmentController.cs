@@ -12,22 +12,17 @@ namespace DocumentsApi.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        private readonly DepartmentContext _context;
+        private readonly DatabaseContext _context;
 
-        public DepartmentController(DepartmentContext context)
+        public DepartmentController(DatabaseContext context)
         {
             _context = context;
 
             if (_context.Departments.Count() == 0)
             {
-                // Create a new TodoItem if collection is empty,
-                // which means you can't delete all TodoItems.
                 _context.Departments.Add(new Department { Name = "Desenvolvimento" });
                 _context.Departments.Add(new Department { Name = "Comercial" });
                 _context.Departments.Add(new Department { Name = "Suporte" });
-
-
-
                 _context.SaveChanges();
             }
         }
