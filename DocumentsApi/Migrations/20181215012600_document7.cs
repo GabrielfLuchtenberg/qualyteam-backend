@@ -2,7 +2,7 @@
 
 namespace DocumentsApi.Migrations
 {
-    public partial class document4 : Migration
+    public partial class document7 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
