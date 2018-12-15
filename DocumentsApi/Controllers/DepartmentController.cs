@@ -8,7 +8,7 @@ using DocumentsApi.Models;
 namespace DocumentsApi.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class DepartmentController : ControllerBase
     {
@@ -28,16 +28,16 @@ namespace DocumentsApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Department>>> GetDepartments()
+        public ActionResult<IEnumerable<Department>> GetDepartments()
         {
-            return await _context.Departments.ToListAsync();
+            return _context.Departments.ToList();
         }
 
         // GET: api/Department/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Department>> GetDepartment(long id)
+        public ActionResult<Department> GetDepartment(long id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            var department = _context.Departments.Find(id);
 
             if (department == null)
             {
@@ -49,10 +49,10 @@ namespace DocumentsApi.Controllers
 
         // POST: api/Department
         [HttpPost]
-        public async Task<ActionResult<Department>> PostDepartment(Department department)
+        public ActionResult<Department> PostDepartment(Department department)
         {
             _context.Departments.Add(department);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return CreatedAtAction("GetDepartment", new { id = department.Id }, department);
         }
@@ -60,7 +60,7 @@ namespace DocumentsApi.Controllers
 
         // PUT: api/Department/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDepartment(long id, Department department)
+        public IActionResult PutDepartment(long id, Department department)
         {
             if (id != department.Id)
             {
@@ -68,23 +68,23 @@ namespace DocumentsApi.Controllers
             }
 
             _context.Entry(department).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return NoContent();
         }
 
         // DELETE: api/Department/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Department>> DeleteDepartment(long id)
+        public ActionResult<Department> DeleteDepartment(long id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            var department = _context.Departments.Find(id);
             if (department == null)
             {
                 return NotFound();
             }
 
             _context.Departments.Remove(department);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return department;
         }

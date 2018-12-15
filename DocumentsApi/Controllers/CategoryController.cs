@@ -8,7 +8,7 @@ using DocumentsApi.Models;
 namespace DocumentsApi.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -28,16 +28,16 @@ namespace DocumentsApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public ActionResult<IEnumerable<Category>> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+            return _context.Categories.ToList();
         }
 
         // GET: api/Category/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(long id)
+        public ActionResult<Category> GetCategory(long id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var category = _context.Categories.Find(id);
 
             if (category == null)
             {
@@ -49,10 +49,10 @@ namespace DocumentsApi.Controllers
 
         // POST: api/Category
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public ActionResult<Category> PostCategory(Category category)
         {
             _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return CreatedAtAction("GetCategory", new { id = category.Id }, category);
         }
@@ -60,7 +60,7 @@ namespace DocumentsApi.Controllers
 
         // PUT: api/Category/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(long id, Category category)
+        public IActionResult PutCategory(long id, Category category)
         {
             if (id != category.Id)
             {
@@ -68,23 +68,23 @@ namespace DocumentsApi.Controllers
             }
 
             _context.Entry(category).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return NoContent();
         }
 
         // DELETE: api/Category/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Category>> DeleteCategory(long id)
+        public ActionResult<Category> DeleteCategory(long id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var category = _context.Categories.Find(id);
             if (category == null)
             {
                 return NotFound();
             }
 
             _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return category;
         }

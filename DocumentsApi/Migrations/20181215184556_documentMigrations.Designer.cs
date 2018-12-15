@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DocumentsApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181215012600_document7")]
-    partial class document7
+    [Migration("20181215184556_documentMigrations")]
+    partial class documentMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace DocumentsApi.Migrations
 
                     b.Property<long>("DepartmentId");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
