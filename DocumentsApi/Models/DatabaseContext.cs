@@ -15,8 +15,9 @@ namespace DocumentsApi.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ForNpgsqlUseIdentityColumns();
             modelBuilder.ApplyConfiguration(new DocumentCategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new DocumentConfiguration());
         }
     }
 

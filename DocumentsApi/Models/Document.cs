@@ -11,8 +11,7 @@ namespace DocumentsApi.Models
 
         public string code { get; set; }
 
-        public ICollection<DocumentCategory> DocumentCategories { get; set; }
-
+        public List<DocumentCategory> DocumentCategories { get; set; }
         public Department Department { get; set; }
 
     }
