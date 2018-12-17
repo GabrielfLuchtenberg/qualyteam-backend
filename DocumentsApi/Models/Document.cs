@@ -7,11 +7,14 @@ namespace DocumentsApi.Models
     {
         public long Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
+        [Required]
+        public string Code { get; set; }
 
-        public string code { get; set; }
-
+        [Required]
         public List<DocumentCategory> DocumentCategories { get; set; }
+        [Required]
         public Department Department { get; set; }
 
     }

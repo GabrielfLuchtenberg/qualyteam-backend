@@ -10,6 +10,8 @@ namespace DocumentsApi.Models
             builder.HasOne(d => d.Department)
                 .WithMany(d => d.Documents)
                 .IsRequired();
+            builder.HasIndex(d => d.Code)
+            .IsUnique();
         }
     }
 }

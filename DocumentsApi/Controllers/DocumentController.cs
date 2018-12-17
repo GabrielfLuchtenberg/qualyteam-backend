@@ -10,8 +10,6 @@ public class DocumentPostModel
 {
     public Document document { get; set; }
     public long DepartmentId {get;set;}
-
-    public List<long> categoryIds {get;set;}
 }
 
 namespace DocumentsApi.Controllers
@@ -55,11 +53,7 @@ namespace DocumentsApi.Controllers
         public IActionResult PostDocument([FromBody] DocumentPostModel DocumentPost)
         {
             Document document = DocumentPost.document;
-            System.Console.Clear();
-            foreach(long categoryId in DocumentPost.categoryIds){
-                DocumentCategory docCategory = new DocumentCategory{CategoryId= categoryId};
-                document.DocumentCategories.Add( docCategory);
-            }
+            
             document.Department = _context.Departments.Find( DocumentPost.DepartmentId);
             _context.Documents.Add(document);
             _context.SaveChanges();
