@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using DocumentsApi.Models;
 using Newtonsoft.Json;
+using DocumentsApi.Middlewares;
 namespace DocumentsApi
 {
     public class Startup
@@ -38,6 +39,9 @@ namespace DocumentsApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            app.UseMiddleware<ApiExceptionHandler>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -47,6 +51,7 @@ namespace DocumentsApi
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
 
             // app.UseHttpsRedirection();
             app.UseCors(C => C.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());

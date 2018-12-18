@@ -15,6 +15,7 @@ namespace DocumentsApi.Models
         [Required]
         public List<DocumentCategory> DocumentCategories { get; set; }
         [Required]
+        public long DepartmentId {get;set;}
         public Department Department { get; set; }
 
     }

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DocumentsApi.Models;
 
-
 public class DocumentPostModel
 {
     public Document document { get; set; }
@@ -53,11 +52,13 @@ namespace DocumentsApi.Controllers
         public IActionResult PostDocument([FromBody] DocumentPostModel DocumentPost)
         {
             Document document = DocumentPost.document;
-            
-            document.Department = _context.Departments.Find( DocumentPost.DepartmentId);
+            int documentCodeCount = _context.Documents.Count( d => d.Code == document.Code);
+            if(documentCodeCount > 0){ 
+                return BadRequest();
+             }
             _context.Documents.Add(document);
             _context.SaveChanges();
-
+        
             return CreatedAtAction("GetDocument", new { id = document.Id }, document);
         }
         [HttpPut]
