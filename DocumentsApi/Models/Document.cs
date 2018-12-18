@@ -13,10 +13,10 @@ namespace DocumentsApi.Models
         public string Code { get; set; }
 
         [Required]
-        public List<DocumentCategory> DocumentCategories { get; set; }
+        public List<DocumentDepartment> DocumentDepartments { get; set; }
         [Required]
-        public long DepartmentId {get;set;}
-        public Department Department { get; set; }
+        public long CategoryId {get;set;}
+        public Category Category { get; set; }
 
     }
 }

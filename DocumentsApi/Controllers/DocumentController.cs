@@ -29,9 +29,9 @@ namespace DocumentsApi.Controllers
         {
             return _context.
                         Documents
-                        .Include(d => d.Department)
-                        .Include(d => d.DocumentCategories)
-                            .ThenInclude(dc => dc.Category)
+                        .Include(d => d.Category)
+                        .Include(d => d.DocumentDepartments)
+                            .ThenInclude(dc => dc.Department)
                         .ToList();
         }
 

@@ -7,7 +7,7 @@ namespace DocumentsApi.Models
     {
         public void Configure(EntityTypeBuilder<Document> builder)
         {
-            builder.HasOne(d => d.Department)
+            builder.HasOne(d => d.Category)
                 .WithMany(d => d.Documents)
                 .IsRequired();
             builder.HasIndex(d => d.Code)

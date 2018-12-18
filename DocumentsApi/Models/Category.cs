@@ -8,7 +8,7 @@ namespace DocumentsApi.Models
         public long Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required,JsonIgnore]
-        public ICollection<DocumentCategory> DocumentCategories { get; set; }
+        [JsonIgnore]
+        public ICollection<Document> Documents { get; set; }
     }
 }
