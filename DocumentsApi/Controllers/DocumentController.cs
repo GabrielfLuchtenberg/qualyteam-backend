@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DocumentsApi.Models;
+using DocumentsApi.Services;
 
-public class DocumentPostModel
+public class DocumentForm
 {
     public Document document { get; set; }
-    public long DepartmentId {get;set;}
+    
 }
 
 namespace DocumentsApi.Controllers
@@ -17,61 +17,44 @@ namespace DocumentsApi.Controllers
     [ApiController]
     public class DocumentController : ControllerBase
     {
-        private readonly DatabaseContext _context;
 
-        public DocumentController(DatabaseContext context)
+        private readonly IDocumentService _service; 
+
+        public DocumentController(IDocumentService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Document>> GetDocuments()
         {
-            return _context.
-                        Documents
-                        .Include(d => d.Category)
-                        .Include(d => d.DocumentDepartments)
-                            .ThenInclude(dc => dc.Department)
-                        .ToList();
+            return  Ok(_service.GetAllItems().ToList());
         }
 
         [HttpGet("{id}")]
         public ActionResult<Document> GetDocument(long id)
         {
-            var document = _context.Documents.Find(id);
-
+            Document document = _service.GetById(id);
             if (document == null)
             {
                 return NotFound();
             }
-
-            return document;
+            return Ok(document);
         }
 
         [HttpPost]
-        public IActionResult PostDocument([FromBody] DocumentPostModel DocumentPost)
+        public IActionResult PostDocument([FromBody] DocumentForm documentPost)
         {
-            Document document = DocumentPost.document;
-            int documentCodeCount = _context.Documents.Count( d => d.Code == document.Code);
-            if(documentCodeCount > 0){ 
-                return BadRequest();
-             }
-            _context.Documents.Add(document);
-            _context.SaveChanges();
-        
+            Document document = documentPost.document;
+            _service.Save(document);
             return CreatedAtAction("GetDocument", new { id = document.Id }, document);
         }
-        [HttpPut]
-        public IActionResult PutDocument(long id, [FromBody]Document document)
+        [HttpPut("{id}")]
+        public IActionResult PutDocument(long id, [FromBody]DocumentForm documentPost)
         {
-            if (id != document.Id)
-            {
-                return BadRequest();
-            }
-            _context.Entry(document).State = EntityState.Modified;
-            _context.SaveChanges();
-
-            return NoContent();
+            Document newDocument = documentPost.document;
+            Document document = _service.Update(id,newDocument);
+            return Ok(document);
         }
     }
 }

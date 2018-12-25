@@ -10,10 +10,12 @@ namespace DocumentsApi.Models
             builder.HasKey(dd => new { dd.DocumentId, dd.DepartmentId });
             builder.HasOne(dd => dd.Document)
                 .WithMany(d => d.DocumentDepartments)
-                .HasForeignKey(dd => dd.DocumentId);
+                .HasForeignKey(dd => dd.DocumentId)
+                .IsRequired();
             builder.HasOne(dd => dd.Department)
                 .WithMany(d => d.DocumentDepartments)
-                .HasForeignKey(dd => dd.DepartmentId);
+                .HasForeignKey(dd => dd.DepartmentId)
+                .IsRequired();
         }
     }
 }
