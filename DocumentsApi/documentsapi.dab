@@ -1,0 +1,37 @@
+{
+  "Services": {
+    "dockerapi": {
+      "Env": [
+        "DB_CONNECTION_STRING=host=postgres_image;port=5432;database=qualyteam;username=qualyteam;password=qualyteam"
+      ],
+      "Image": "registry.heroku.com/backend-qualyteam/web@sha256:df1b02795cd225f0cae1d83a53ee6979ac011af70712247b244b714aafd394f1",
+      "Networks": [
+        "dockerapi-dev"
+      ],
+      "Ports": [
+        {
+          "Port": 80,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    "postgres_image": {
+      "Env": [
+        "POSTGRES_USER=qualyteam",
+        "POSTGRES_PASSWORD=qualyteam",
+        "POSTGRES_DB=qualyteam"
+      ],
+      "Image": "postgres@sha256:28b4a1b0d3ae9b38a16c97a4e655bdc13496a304d1a241c531ac1efc2faa7230",
+      "Networks": [
+        "dockerapi-dev"
+      ],
+      "Ports": [
+        {
+          "Port": 5432,
+          "Protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "Version": "0.1"
+}
