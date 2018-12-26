@@ -1,0 +1,17 @@
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.csprojAssemblyReference.cache
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.csproj.CoreCompileInputs.cache
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.AssemblyInfoInputs.cache
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.AssemblyInfo.cs
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.Tests.deps.json
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.Tests.runtimeconfig.json
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.Tests.runtimeconfig.dev.json
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.Tests.dll
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.Tests.pdb
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.dll
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\bin\Debug\netcoreapp2.2\DocumentsApi.pdb
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.csproj.CopyComplete
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.dll
+D:\projetos\qualyteam\back-end\DocumentsApi.Tests\obj\Debug\netcoreapp2.2\DocumentsApi.Tests.pdb
