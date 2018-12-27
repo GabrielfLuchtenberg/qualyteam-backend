@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DocumentsApi.Models;
 using DocumentsApi.Services;
-
 public class DocumentForm
 {
     public Document document { get; set; }
@@ -26,13 +25,13 @@ namespace DocumentsApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Document>> GetDocuments()
+        public ActionResult<IEnumerable<Document>> Get()
         {
             return  Ok(_service.GetAllItems().ToList());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Document> GetDocument(long id)
+        public ActionResult<Document> Get(long id)
         {
             Document document = _service.GetById(id);
             if (document == null)
@@ -43,14 +42,17 @@ namespace DocumentsApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostDocument([FromBody] DocumentForm documentPost)
+        public IActionResult Post([FromBody] DocumentForm documentPost)
         {
             Document document = documentPost.document;
+            if(!ModelState.IsValid){
+                return BadRequest();
+            }
             _service.Save(document);
             return CreatedAtAction("GetDocument", new { id = document.Id }, document);
         }
         [HttpPut("{id}")]
-        public IActionResult PutDocument(long id, [FromBody]DocumentForm documentPost)
+        public IActionResult Put(long id, [FromBody]DocumentForm documentPost)
         {
             Document newDocument = documentPost.document;
             Document document = _service.Update(id,newDocument);

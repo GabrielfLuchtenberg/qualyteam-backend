@@ -34,7 +34,6 @@ namespace DocumentsApi.Middlewares
             response.StatusCode = (int)HttpStatusCode.InternalServerError;
             await response.WriteAsync(JsonConvert.SerializeObject(new
             {
-                // customize as you need
                 error = new
                 {
                     message = exception.Message,

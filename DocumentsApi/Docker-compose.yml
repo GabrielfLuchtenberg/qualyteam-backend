@@ -26,7 +26,7 @@ services:
     restart: always
     volumes:
       - db_volume:/var/lib/postgresql/data
-      - ./sqlscripts/ :/docker-entrypoint-initdb.d/
+      - ./sqlscripts:/docker-entrypoint-initdb.d/
     environment:
       POSTGRES_USER: "qualyteam"
       POSTGRES_PASSWORD: "qualyteam"

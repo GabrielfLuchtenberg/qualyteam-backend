@@ -11,7 +11,7 @@ namespace DocumentsApi.Models
                 .WithMany(d => d.Documents)
                 .IsRequired();
             builder.HasIndex(d => d.Code)
-            .IsUnique();
+                .IsUnique();
         }
     }
 }
